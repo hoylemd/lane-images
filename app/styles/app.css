@@ -15,6 +15,18 @@
   border: 1px solid black;
 }
 .image-window {
-  max-height: 500px;
-  max-width: 500px
+  height: 500px;
+  width: 500px
 }
+
+/* action classes */
+.rotate_right {}
+.rotate_left {}
+.rotate_180 {}
+.translate_left {}
+.translate_right {}
+.translate_up {}
+.translate_down {}
+.scale_half {}
+.scale_double {}
+.half_opacity {}

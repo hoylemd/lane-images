@@ -17,15 +17,18 @@ export default Ember.Controller.extend({
   available_actions: function() {
     return this.get('all_actions').filterBy('applied', false);
   }.property('all_actions.@each.applied'),
+
   applied_actions: function() {
     return this.get('all_actions').filterBy('applied');
   }.property('all_actions.@each.applied'),
+
   image_classes: function () {
     var classes = this.get('applied_actions').mapBy('class_to_apply');
     classes.push("image-window");
 
     return classes.join(' ');
-  }.property('applied_actions'),
+  }.property('all_actions.@each.applied'),
+
   actions: {
     'add_action': function(action) {
       console.log("adding " + action.name);
