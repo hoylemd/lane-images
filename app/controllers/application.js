@@ -13,7 +13,15 @@ export default Ember.Controller.extend({
     {name:'Scale to Half', class_to_apply:'scale_half'},
     {name:'Scale to Double', class_to_apply:'scale_double'},
     {name:'Half Opacity', class_to_apply:'half_opacity'}
-  ]
+  ],
   applied_actions: [
-  ]
+  ],
+  actions: {
+    'add_action': function(action) {
+      console.log("adding " + action.name)
+    },
+    'remove_action': function(action) {
+      console.log("removing " + action.name)
+    }
+  }
 });

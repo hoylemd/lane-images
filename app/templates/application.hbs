@@ -7,12 +7,12 @@
   <div class="actions-area">
     <ul class="actions-available">
       {{#each action in available_actions}}
-      <li class="action">{{action.name}}</li>
+      <li {{action 'add_action' action}} class="action">{{action.name}}</li>
       {{/each}}
     </ul>
     <ul class="actions-aplied">
       {{#each action in applied_actions}}
-      <li class="action">{{action.name}}</li>
+      <li {{action 'remove_action' action}} class="action">{{action.name}}</li>
       {{/each}}
     </ul>
     <button class="button-reset">Reset</button>
