@@ -1,3 +1,20 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div class="application">
+  <div class="image-area">
+    <img alt="Your image" src={{ image_source }}
+      class="image-window js-image-display"/>
+    <input type="file" class="js-image-upload">
+  </div>
+  <div class="actions-area">
+    <ul class="actions-available">
+      {{#each action in available_actions}}
+      <li class="action">{{action.name}}</li>
+      {{/each}}
+    </ul>
+    <ul class="actions-aplied">
+      {{#each action in applied_actions}}
+      <li class="action">{{action.name}}</li>
+      {{/each}}
+    </ul>
+    <button class="button-reset">Reset</button>
+  </div>
+</div>

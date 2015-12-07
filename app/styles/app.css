@@ -1,0 +1,20 @@
+.application {
+  height: 550px;
+}
+.image-area, .actions-area {
+  display: inline-block;
+  width: 550px;
+  height: 550px;
+  overflow: hidden;
+}
+.actions-area {
+  border: 1px solid red;
+  height: 100%;
+}
+.image-area {
+  border: 1px solid black;
+}
+.image-window {
+  max-height: 500px;
+  max-width: 500px
+}
