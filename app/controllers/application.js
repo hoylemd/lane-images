@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  image_source: 'http://i.imgur.com/LmfujBz.png',
+  image_source:'http://www.squishable.com/user_gallery/pillow_catbug_okay_2D/360s/pillow_catbug_okay_2D_design.jpg',
   all_actions: [
     {name:'Rotate Right', class_to_apply:'rotate_right', applied: false},
     {name:'Rotate Left', class_to_apply:'rotate_left', applied: false},
@@ -24,8 +24,6 @@ export default Ember.Controller.extend({
 
   image_classes: function () {
     var classes = this.get('applied_actions').mapBy('class_to_apply');
-    classes.push("image-window");
-
     return classes.join(' ');
   }.property('all_actions.@each.applied'),
 
