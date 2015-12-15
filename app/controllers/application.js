@@ -61,6 +61,11 @@ export default Ember.Controller.extend({
     },
     'remove_action': function(action) {
       action.set('applied', false);
+    },
+    'reset': function () {
+      this.get('all_actions').forEach((item) => {
+        item.set('applied', false);
+      });
     }
   }
 });
