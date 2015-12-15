@@ -29,10 +29,32 @@
 .rotate_180 {
   transform: rotate(180deg);
 }
-.translate_left {}
-.translate_right {}
-.translate_up {}
-.translate_down {}
+.translate_left {
+  transform: translate(-40px, 0px);
+}
+.translate_right {
+  transform: translate(40px, 0px);
+}
+.translate_up {
+  transform: translate(0px, -40px);
+}
+.translate_down {
+  transform: translate(0px, 40px);
+}
+.translate_left.translate_up {
+  transform: translate(-40px, -40px);
+}
+.translate_right.translate_up {
+  transform: translate(40px, -40px);
+}
+.translate_left.translate_down {
+  transform: translate(-40px, 40px);
+}
+.translate_right.translate_down {
+  transform: translate(40px, 40px);
+}
+
+
 .scale_half {}
 .scale_double {}
 .half_opacity {}
