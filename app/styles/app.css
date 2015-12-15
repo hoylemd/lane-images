@@ -53,8 +53,10 @@
 .translate_right.translate_down {
   transform: translate(40px, 40px);
 }
-
-
-.scale_half {}
-.scale_double {}
+.scale_half {
+  transform: scale(0.5, 0.5);
+}
+.scale_double {
+  transform: scale(2, 2);
+}
 .half_opacity {}
