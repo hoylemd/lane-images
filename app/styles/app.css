@@ -59,4 +59,6 @@
 .scale_double {
   transform: scale(2, 2);
 }
-.half_opacity {}
+.half_opacity {
+  opacity: 0.5;
+}
