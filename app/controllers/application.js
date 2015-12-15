@@ -1,29 +1,43 @@
 import Ember from 'ember';
 
+function new_action(spec) {
+  var action = Ember.Object.create(spec);
+  action.set('applied', false);
+  return action;
+}
+
 export default Ember.Controller.extend({
   image_source:'http://www.squishable.com/user_gallery/pillow_catbug_okay_2D/360s/pillow_catbug_okay_2D_design.jpg',
+  init: function () {
+    var hash = this.get('actions_hash');
+
+    this.get('all_actions').forEach(function(action){
+      hash[action.get('class_to_apply')] = action;
+    });
+  },
   all_actions: [
-    {name:'Rotate Right', class_to_apply:'rotate_right', applied: false,
-      mutex: ['rotate_left', 'rotate_180']},
-    {name:'Rotate Left', class_to_apply:'rotate_left', applied: false,
-      mutex: ['rotate_right', 'rotate_180']},
-    {name:'Rotate 180', class_to_apply:'rotate_180', applied: false,
-      mutex: ['rotate_right', 'rotate_left']},
-    {name:'Translate Left', class_to_apply:'translate_left', applied: false,
-      mutex: ['translate_right']},
-    {name:'Translate Right', class_to_apply:'translate_right', applied: false,
-      mutex: ['translate_left']},
-    {name:'Translate Up', class_to_apply:'translate_up', applied: false,
-      mutex: ['translate_down']},
-    {name:'Translate Down', class_to_apply:'translate_down', applied: false,
-      mutex: ['translate_up']},
-    {name:'Scale to Half', class_to_apply:'scale_half', applied: false,
-      mutex: ['scale_double']},
-    {name:'Scale to Double', class_to_apply:'scale_double', applied: false,
-      mutex: ['scale_half']},
-    {name:'Half Opacity', class_to_apply:'half_opacity', applied: false,
-      mutex: []}
+    new_action({name:'Rotate Right', class_to_apply:'rotate_right',
+      mutex: ['rotate_left', 'rotate_180']}),
+    new_action({name:'Rotate Left', class_to_apply:'rotate_left',
+      mutex: ['rotate_right', 'rotate_180']}),
+    new_action({name:'Rotate 180', class_to_apply:'rotate_180',
+      mutex: ['rotate_right', 'rotate_left']}),
+    new_action({name:'Translate Left', class_to_apply:'translate_left',
+      mutex: ['translate_right']}),
+    new_action({name:'Translate Right', class_to_apply:'translate_right',
+      mutex: ['translate_left']}),
+    new_action({name:'Translate Up', class_to_apply:'translate_up',
+      mutex: ['translate_down']}),
+    new_action({name:'Translate Down', class_to_apply:'translate_down',
+      mutex: ['translate_up']}),
+    new_action({name:'Scale to Half', class_to_apply:'scale_half',
+      mutex: ['scale_double']}),
+    new_action({name:'Scale to Double', class_to_apply:'scale_double',
+      mutex: ['scale_half']}),
+    new_action({name:'Half Opacity', class_to_apply:'half_opacity',
+      mutex: []})
   ],
+  actions_hash: {},
   available_actions: function() {
     return this.get('all_actions').filterBy('applied', false);
   }.property('all_actions.@each.applied'),
@@ -39,12 +53,14 @@ export default Ember.Controller.extend({
 
   actions: {
     'add_action': function(action) {
-      console.log("adding " + action.name);
       Ember.set(action, 'applied', true);
+      var hash = this.get('actions_hash');
+      action.get('mutex').forEach(function(action) {
+        hash[action].set('applied', false);
+      });
     },
     'remove_action': function(action) {
-      console.log("removing " + action.name);
-      Ember.set(action, 'applied', false);
+      action.set('applied', false);
     }
   }
 });
