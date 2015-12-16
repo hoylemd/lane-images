@@ -22,9 +22,16 @@ $area-height-most: $area-height - $area-height-little;
   border: 1px solid black;
   .image_area-window {
     height: $area-height-most;
+    line-height: 100%;
+    text-align: center;
+    .alignment-helper {
+      vertical-align: middle;
+      display: inline-block;
+      height: 100%;
+    }
     img {
-      margin-left: auto;
-      margin-right: auto;
+      vertical-align: middle;
+      display: inline-block;
     }
   }
   .image_area-upload {
