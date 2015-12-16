@@ -11,6 +11,25 @@ $area-width-half: $area-width / 2;
 $area-height-little: 50px;
 $area-height-most: $area-height - $area-height-little;
 
+/* mixins */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin vertically_align() {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+@mixin lol_no_list_styling_please() {
+  list-style-type: none;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
 .image_area, .actions_area {
   float: left;
   width: $area-width;
@@ -22,16 +41,13 @@ $area-height-most: $area-height - $area-height-little;
   border: 1px solid black;
   .image_area-window {
     height: $area-height-most;
-    line-height: 100%;
     text-align: center;
     .alignment-helper {
-      vertical-align: middle;
-      display: inline-block;
+      @include vertically_align;
       height: 100%;
     }
     img {
-      vertical-align: middle;
-      display: inline-block;
+      @include vertically_align;
     }
   }
   .image_area-upload {
@@ -54,13 +70,12 @@ $area-height-most: $area-height - $area-height-little;
       width: $area-width-half;
 
       ul {
+        @include lol_no_list_styling_please;
         padding: $common_spacing;
-        -webkit-margin-before: 0;
-        -webkit-margin-after: 0;
         width: $area-width-half - ($common_spacing * 2);
 
         li {
-          list-style-type: none;
+          @include border-radius(8px);
           background-color: $background-green;
           color: $foreground-green;
           border: 1px solid $border-green;
