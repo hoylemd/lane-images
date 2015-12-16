@@ -70,6 +70,10 @@ export default Ember.Controller.extend({
       this.get('all_actions').forEach((item) => {
         item.set('applied', false);
       });
+    },
+    'upload_image': function (image_data) {
+      this.set('image_source', image_data);
+      debugger;
     }
   }
 });
