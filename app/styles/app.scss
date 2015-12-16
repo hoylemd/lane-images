@@ -28,7 +28,9 @@ $common_spacing: 5px;
   border: 1px solid red;
   height: 100%;
   ul {
+    display: inline-block;
     padding: $common_spacing;
+    width: 263px;
     li {
       list-style-type: none;
       background-color: $background-green;
