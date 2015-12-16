@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
     this.get('all_actions').forEach(function(action){
       hash[action.get('class_to_apply')] = action;
     });
+
   },
   all_actions: [
     new_action({name:'Rotate Right', class_to_apply:'rotate_right',
@@ -46,11 +47,14 @@ export default Ember.Controller.extend({
     return this.get('all_actions').filterBy('applied');
   }.property('all_actions.@each.applied'),
 
-  image_classes: function () {
+  action_classes: function () {
     var classes = this.get('applied_actions').mapBy('class_to_apply');
     return classes.join(' ');
   }.property('all_actions.@each.applied'),
 
+  image_classes: function () {
+    return 'js-the-image ' + this.get('action_classes');
+  }.property('action_classes'),
   actions: {
     'add_action': function(action) {
       Ember.set(action, 'applied', true);
