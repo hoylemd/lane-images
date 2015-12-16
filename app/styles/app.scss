@@ -6,8 +6,10 @@ $foreground-green: #6B6;
 /* positioning and dimensioning variables */
 $common_spacing: 5px;
 $area-width: 550px;
-$area-height: 550px;
+$area-height: 600px;
 $area-width-half: $area-width / 2;
+$area-height-most: 550px;
+
 .image_area, .actions_area {
   display: inline-block;
   width: $area-width;
@@ -19,8 +21,7 @@ $area-width-half: $area-width / 2;
   border: 1px solid black;
 }
 .image_window {
-  height: 500px;
-  width: 500px;
+  height: $area-height-most;
 }
 
 .actions_area {
