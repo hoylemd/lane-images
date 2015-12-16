@@ -12,7 +12,7 @@ $area-height-little: 50px;
 $area-height-most: $area-height - $area-height-little;
 
 .image_area, .actions_area {
-  display: inline-block;
+  float: left;
   width: $area-width;
   height: $area-height;
   overflow: hidden;
