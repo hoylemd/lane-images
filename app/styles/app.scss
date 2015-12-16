@@ -1,3 +1,11 @@
+/* color variables */
+$border-green: #8D8;
+$background-green: #DFD;
+$foreground-green: #6B6;
+
+/* positioning variables */
+$common_spacing: 5px;
+
 .application {
   height: 550px;
 }
@@ -19,6 +27,17 @@
 .actions_area {
   border: 1px solid red;
   height: 100%;
+  ul {
+    padding: $common_spacing;
+    li {
+      list-style-type: none;
+      background-color: $background-green;
+      color: $foreground-green;
+      border: 1px solid $border-green;
+      margin: $common_spacing;
+      padding: $common_spacing;
+    }
+  }
 }
 
 /* action classes */
