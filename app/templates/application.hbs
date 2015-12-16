@@ -1,21 +1,21 @@
 <div class="application">
-  <div class="image-area">
-    <div class="image-window">
+  <div class="image_area">
+    <div class="image_window">
       <img alt="Your image" src="{{ image_source }}" class="{{ image_classes }}"/>
     </div>
     {{ image-upload }}
   </div>
-  <div class="actions-area">
-    <ul class="actions-available">
-      {{#each action in available_actions}}
-      <li {{action 'add_action' action}} class="action">{{action.name}}</li>
+  <div class="actions_area">
+    <ul class="actions_available">
+      {{#each available_actions as |action| }}
+        <li {{action 'add_action' action}} class="action">{{action.name}}</li>
       {{/each}}
     </ul>
-    <ul class="actions-aplied">
-      {{#each action in applied_actions}}
+    <ul class="actions_aplied">
+      {{#each applied_actions as |action| }}
       <li {{action 'remove_action' action}} class="action">{{action.name}}</li>
       {{/each}}
     </ul>
-    <button {{action 'reset'}} class="button-reset">Reset</button>
+    <button {{action 'reset'}} class="button_reset">Reset</button>
   </div>
 </div>

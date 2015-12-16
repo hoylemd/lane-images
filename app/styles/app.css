@@ -1,22 +1,24 @@
 .application {
   height: 550px;
 }
-.image-area, .actions-area {
+.image_area, .actions_area {
   display: inline-block;
   width: 550px;
   height: 550px;
   overflow: hidden;
 }
-.actions-area {
-  border: 1px solid red;
-  height: 100%;
-}
-.image-area {
+
+.image_area {
   border: 1px solid black;
 }
-.image-window {
+.image_window {
   height: 500px;
   width: 500px
+}
+
+.actions_area {
+  border: 1px solid red;
+  height: 100%;
 }
 
 /* action classes */
