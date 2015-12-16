@@ -3,16 +3,15 @@ $border-green: #8D8;
 $background-green: #DFD;
 $foreground-green: #6B6;
 
-/* positioning variables */
+/* positioning and dimensioning variables */
 $common_spacing: 5px;
-
-.application {
-  height: 550px;
-}
+$area-width: 550px;
+$area-height: 550px;
+$area-width-half: $area-width / 2;
 .image_area, .actions_area {
   display: inline-block;
-  width: 550px;
-  height: 550px;
+  width: $area-width;
+  height: $area-height;
   overflow: hidden;
 }
 
@@ -36,10 +35,9 @@ $common_spacing: 5px;
   .actions_lists {
     .actions_lists_half {
       float: left;
-      width: 273px;
+      width: $area-width-half;
 
       ul {
-        display: inline-block;
         padding: $common_spacing;
         -webkit-margin-before: 0;
         -webkit-margin-after: 0;
