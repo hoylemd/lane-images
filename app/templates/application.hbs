@@ -6,16 +6,24 @@
     {{ image-upload }}
   </div>
   <div class="actions_area">
-    <ul class="actions_available">
-      {{#each available_actions as |action| }}
-        <li {{action 'add_action' action}} class="action">{{action.name}}</li>
-      {{/each}}
-    </ul>
-    <ul class="actions_applied">
-      {{#each applied_actions as |action| }}
-      <li {{action 'remove_action' action}} class="action">{{action.name}}</li>
-      {{/each}}
-    </ul>
-    <button {{action 'reset'}} class="button_reset">Reset</button>
+    <div class="reset_actions">
+      <button {{action 'reset'}} class="button_reset">Reset</button>
+    </div>
+    <div class="actions_lists">
+      <div class="actions_lists_half">
+        <ul class="actions_available">
+          {{#each available_actions as |action| }}
+            <li {{action 'add_action' action}} class="action">{{action.name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="actions_lists_half">
+        <ul class="actions_applied">
+          {{#each applied_actions as |action| }}
+          <li {{action 'remove_action' action}} class="action">{{action.name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

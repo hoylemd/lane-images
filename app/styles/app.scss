@@ -21,25 +21,43 @@ $common_spacing: 5px;
 }
 .image_window {
   height: 500px;
-  width: 500px
+  width: 500px;
 }
 
 .actions_area {
   border: 1px solid red;
-  height: 100%;
-  ul {
-    display: inline-block;
-    padding: $common_spacing;
-    width: 263px;
-    li {
-      list-style-type: none;
-      background-color: $background-green;
-      color: $foreground-green;
-      border: 1px solid $border-green;
-      margin: $common_spacing;
-      padding: $common_spacing;
+  .reset_actions {
+    .button_reset {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
+  .actions_lists {
+    .actions_lists_half {
+      float: left;
+      width: 273px;
+
+      ul {
+        display: inline-block;
+        padding: $common_spacing;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+        width: 100%;
+
+        li {
+          list-style-type: none;
+          background-color: $background-green;
+          color: $foreground-green;
+          border: 1px solid $border-green;
+          margin: $common_spacing;
+          padding: $common_spacing;
+          text-align: center;
+        }
+      }
+    }
+  }
+
 }
 
 /* action classes */
