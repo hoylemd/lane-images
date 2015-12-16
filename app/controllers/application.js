@@ -73,7 +73,6 @@ export default Ember.Controller.extend({
     },
     'upload_image': function (image_data) {
       this.set('image_source', image_data);
-      debugger;
     }
   }
 });
