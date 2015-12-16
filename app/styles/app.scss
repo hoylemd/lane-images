@@ -8,7 +8,8 @@ $common_spacing: 5px;
 $area-width: 550px;
 $area-height: 600px;
 $area-width-half: $area-width / 2;
-$area-height-most: 550px;
+$area-height-little: 50px;
+$area-height-most: $area-height - $area-height-little;
 
 .image_area, .actions_area {
   display: inline-block;
@@ -19,9 +20,16 @@ $area-height-most: 550px;
 
 .image_area {
   border: 1px solid black;
-}
-.image_window {
-  height: $area-height-most;
+  .image_area-window {
+    height: $area-height-most;
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .image_area-upload {
+    height: $area-height-little;
+  }
 }
 
 .actions_area {
@@ -42,7 +50,7 @@ $area-height-most: 550px;
         padding: $common_spacing;
         -webkit-margin-before: 0;
         -webkit-margin-after: 0;
-        width: 100%;
+        width: $area-width-half - ($common_spacing * 2);
 
         li {
           list-style-type: none;
