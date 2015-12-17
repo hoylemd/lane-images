@@ -15,7 +15,6 @@ export default Ember.Controller.extend({
       var type = action.get('type');
       hash[action.get('class_to_apply')] = action;
 
-      hash[type] = hash[type] || [];
       hash[type].push(action);
     });
   },
@@ -26,22 +25,43 @@ export default Ember.Controller.extend({
       type: 'rotate'}),
     new_action({name:'Rotate 180', class_to_apply:'rotate_180deg',
       type: 'rotate'}),
-    new_action({name:'Translate Left', class_to_apply:'translate_left',
-      type: 'translate-horizontal'}),
-    new_action({name:'Translate Right', class_to_apply:'translate_right',
-      type: 'translate-horizontal'}),
-    new_action({name:'Translate Up', class_to_apply:'translate_up',
-      type: 'translate-vertical'}),
-    new_action({name:'Translate Down', class_to_apply:'translate_down',
-      type: 'translate-vertical'}),
+    new_action({name:'Translate Left', class_to_apply:'h_translate_-40px',
+      type: 'h_translate'}),
+    new_action({name:'Translate Right', class_to_apply:'h_translate_40px',
+      type: 'h_translate'}),
+    new_action({name:'Translate Up', class_to_apply:'v_translate_-40px',
+      type: 'v_translate'}),
+    new_action({name:'Translate Down', class_to_apply:'v_translate_40px',
+      type: 'v_translate'}),
     new_action({name:'Scale to Half', class_to_apply:'scale_half',
       type: 'scale'}),
     new_action({name:'Scale to Double', class_to_apply:'scale_double',
       type: 'scale'}),
-    new_action({name:'Half Opacity', class_to_apply:'half_opacity',
+    new_action({name:'Half Opacity', class_to_apply: 'opacity_half',
       type: 'opacity'})
   ],
-  types_hash: {},
+  types_hash: {
+    rotate: [
+      new_action({name:'No Rotation', class_to_apply: 'rotate_0deg',
+        type: 'rotate'})
+    ],
+    h_translate: [
+      new_action({name:'No Horizontal Translation',
+                  class_to_apply: 'h_translate_0dpx', type: 'h_translate'})
+    ],
+    v_translate: [
+      new_action({name:'No Vertical Translation',
+                  class_to_apply: 'v_translate_0dpx', type: 'v_translate'})
+    ],
+    scale: [
+      new_action({name:'No Scale', class_to_apply: 'scale_none',
+        type: 'scale'})
+    ],
+    opacity: [
+      new_action({name:'Full Opacity', class_to_apply: 'opacity_full',
+        type: 'opacity'})
+    ],
+  },
   available_actions: function() {
     return this.get('all_actions').filterBy('applied', false);
   }.property('all_actions.@each.applied'),
@@ -69,7 +89,9 @@ export default Ember.Controller.extend({
       action.set('applied', true);
     },
     'remove_action': function(action) {
+      var default_action = this.get('types_hash')[action.get('type')];
       action.set('applied', false);
+      default_action.set('applied', true);
     },
     'reset': function () {
       this.get('all_actions').forEach((item) => {

@@ -1,10 +1,4 @@
 /* action classes */
-.translate_left {
-  transform: translate(-40px, 0px);
-}
-.translate_right {
-  transform: translate(40px, 0px);
-}
 .translate_up {
   transform: translate(0px, -40px);
 }
@@ -22,12 +16,24 @@
 }
 
 $rotates: 0deg, 270deg, 90deg, 180deg;
-$h_translates: none left right;
-$v_translates: none up down;
-$scales: none half double;
+$h_translates: 0px, -40px, 40px;
+$v_translates: 0px, -40px, 40px;
+$scales: (full, 1), (half, 0.5), (double, 2);
+$opacities: (full, 1), (half, 0,5);
 
+
+// 5 nested loops. Somewhere, Hanz Zimmer is writing the soundtrack to this.
 @each $rotate in $rotates {
-  .rotate_#{$rotate} {
-    transform: rotate(#{$rotate});
+  @each $h_translate in $h_translates {
+    @each $v_translate in $v_translates {
+      @each $s_name, $s_value in $scales {
+        @each $o_name, $o_value in $opacities {
+          .rotate_#{$rotate}.h_translate_#{$h_translate}.v_translate_#{$v_translate}.scale_#{$s_name}.opacity_#{$o_name} {
+            transform: rotate(#{$rotate}) translate(#{$h_translate}, #{$v_translate}) scale(#{$s_value});
+            opacity: #{$o_value};
+          }
+        }
+      }
+    }
   }
 }
