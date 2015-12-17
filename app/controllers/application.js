@@ -41,6 +41,11 @@ export default Ember.Controller.extend({
     return this.get('all_actions').filterBy('applied');
   }.property('all_actions.@each.applied'),
 
+  image_style: function () {
+    var toy_opacity =  this.get('applied_actions').length * 0.1;
+    return 'opacity: ' + toy_opacity + ';';
+  }.property('all_actions.@each.applied'),
+
   actions: {
     'add_action': function(action) {
       var type = action.get('type');
