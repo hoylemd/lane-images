@@ -7,6 +7,10 @@ $border-light_gray: #999;
 $background-light_gray: #EEE;
 $foreground-light_gray: #777;
 
+$border-dark_gray: #777;
+$background-dark_gray: #CCC;
+$foreground-dark_gray: #555;
+
 $border-green: #8D8;
 $background-green: #DFD;
 $foreground-green: #6B6;
@@ -14,6 +18,10 @@ $foreground-green: #6B6;
 $border-light_green: #9E9;
 $background-light_green: #EFE;
 $foreground-light_green: #7C7;
+
+$border-dark_green: #7C7;
+$background-dark_green: #CEC;
+$foreground-dark_green: #5A5;
 
 /* positioning and dimensioning variables */
 $common_spacing: 5px;
@@ -55,6 +63,11 @@ $area-height-most: $area-height - $area-height-little;
     border-color: $border-light_gray;
     color: $foreground-light_gray;
   }
+  &:active {
+    background-color: $background-dark_gray;
+    border-color: $border-dark_gray;
+    color: $foreground-dark_gray;
+  }
 }
 
 .nice_control-green {
@@ -66,6 +79,11 @@ $area-height-most: $area-height - $area-height-little;
     background-color: $background-light_green;
     border-color: $border-light_green;
     color: $foreground-light_green;
+  }
+  &:active {
+    background-color: $background-dark_gray;
+    border-color: $border-dark_gray;
+    color: $foreground-dark_gray;
   }
 }
 
