@@ -111,7 +111,7 @@ $foreground-light_blue: #77C;
 
 $border-dark_blue: #77C;
 $background-dark_blue: #CCE;
-$foreground-dark_blue: #5A5;
+$foreground-dark_blue: #AA5;
 
 @mixin palette-dark_blue {
   background-color: $background-dark_blue;
@@ -119,4 +119,32 @@ $foreground-dark_blue: #5A5;
   color: $foreground-dark_blue;
 };
 
+$border-pink: #D8D;
+$background-pink: #FDF;
+$foreground-pink: #868;
 
+@mixin palette-pink {
+  background-color: $background-pink;
+  border-color: $border-pink;
+  color: $foreground-pink;
+};
+
+$border-light_pink: #E9E;
+$background-light_pink: #FEF;
+$foreground-light_pink: #C7C;
+
+@mixin palette-light_pink {
+  background-color: $background-light_pink;
+  border-color: $border-light_pink;
+  color: $foreground-light_pink;
+};
+
+$border-dark_pink: #C7C;
+$background-dark_pink: #ECE;
+$foreground-dark_pink: #5A5;
+
+@mixin palette-dark_pink {
+  background-color: $background-dark_pink;
+  border-color: $border-dark_pink;
+  color: $foreground-dark_pink;
+};

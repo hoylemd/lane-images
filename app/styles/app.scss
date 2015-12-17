@@ -42,14 +42,14 @@ $area-height-most: $area-height - $area-height-little;
   }
 }
 
-.nice_control-blue {
+.nice_control-red {
   @extend .nice_control;
-  @include palette-blue;
+  @include palette-red;
   &:hover {
-    @include palette-light_blue;
+    @include palette-light_red;
   }
   &:active {
-    @include palette-dark_blue;
+    @include palette-dark_red;
   }
 }
 
@@ -72,6 +72,17 @@ $area-height-most: $area-height - $area-height-little;
   }
   &:active {
     @include palette-dark_blue;
+  }
+}
+
+.nice_control-pink {
+  @extend .nice_control;
+  @include palette-pink;
+  &:hover {
+    @include palette-light_pink;
+  }
+  &:active {
+    @include palette-dark_pink;
   }
 }
 
@@ -133,9 +144,21 @@ body {
         width: $area-width-half - ($common_spacing * 2);
 
         li {
-          @extend .nice_control-green;
+          @extend .nice_control;
           margin: $common_spacing;
           padding: $common_spacing;
+          &.rotate {
+            @extend .nice_control-red;
+          }
+          &.translate-vertical {
+            @extend .nice_control-green;
+          }
+          &.translate-horizontal {
+            @extend .nice_control-blue;
+          }
+          &.scale {
+            @extend .nice_control-pink;
+          }
         }
       }
     }
