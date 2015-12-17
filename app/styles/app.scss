@@ -3,25 +3,121 @@ $border-gray: #888;
 $background-gray: #DDD;
 $foreground-gray: #666;
 
+@mixin palette-gray {
+  background-color: $background-gray;
+  border-color: $border-gray;
+  color: $foreground-gray;
+};
+
 $border-light_gray: #999;
 $background-light_gray: #EEE;
 $foreground-light_gray: #777;
+
+@mixin palette-light_gray {
+  background-color: $background-light_gray;
+  border-color: $border-light_gray;
+  color: $foreground-light_gray;
+};
 
 $border-dark_gray: #777;
 $background-dark_gray: #CCC;
 $foreground-dark_gray: #555;
 
+@mixin palette-dark_gray {
+  background-color: $background-dark-gray;
+  border-color: $border-dark-gray;
+  color: $foreground-dark-gray;
+};
+
+$border-red: #D88;
+$background-red: #FDD;
+$foreground-red: #866;
+
+@mixin palette-red {
+  background-color: $background-red;
+  border-color: $border-red;
+  color: $foreground-red;
+};
+
+$border-light_red: #E99;
+$background-light_red: #FEE;
+$foreground-light_red: #C77;
+
+@mixin palette-light_red {
+  background-color: $background-light_red;
+  border-color: $border-light_red;
+  color: $foreground-light_red;
+};
+
+$border-dark_red: #C77;
+$background-dark_red: #ECC;
+$foreground-dark_red: #A55;
+
+@mixin palette-dark_red {
+  background-color: $background-dark_red;
+  border-color: $border-dark_red;
+  color: $foreground-dark_red;
+};
+
 $border-green: #8D8;
 $background-green: #DFD;
-$foreground-green: #6B6;
+$foreground-green: #686;
+
+@mixin palette-green {
+  background-color: $background-green;
+  border-color: $border-green;
+  color: $foreground-green;
+};
 
 $border-light_green: #9E9;
 $background-light_green: #EFE;
 $foreground-light_green: #7C7;
 
+@mixin palette-light_green {
+  background-color: $background-light_green;
+  border-color: $border-light_green;
+  color: $foreground-light_green;
+};
+
 $border-dark_green: #7C7;
 $background-dark_green: #CEC;
 $foreground-dark_green: #5A5;
+
+@mixin palette-dark_green {
+  background-color: $background-dark_green;
+  border-color: $border-dark_green;
+  color: $foreground-dark_green;
+};
+
+$border-blue: #88D;
+$background-blue: #DDF;
+$foreground-blue: #668;
+
+@mixin palette-blue {
+  background-color: $background-blue;
+  border-color: $border-blue;
+  color: $foreground-blue;
+};
+
+$border-light_blue: #99E;
+$background-light_blue: #EEF;
+$foreground-light_blue: #77C;
+
+@mixin palette-light_blue {
+  background-color: $background-light_blue;
+  border-color: $border-light_blue;
+  color: $foreground-light_blue;
+};
+
+$border-dark_blue: #77C;
+$background-dark_blue: #CCE;
+$foreground-dark_blue: #5A5;
+
+@mixin palette-dark_blue {
+  background-color: $background-dark_blue;
+  border-color: $border-dark_blue;
+  color: $foreground-dark_blue;
+};
 
 /* positioning and dimensioning variables */
 $common_spacing: 5px;
@@ -56,35 +152,45 @@ $area-height-most: $area-height - $area-height-little;
   @include border-radius(8px);
   border-width: 1px;
   border-style: solid;
-  background-color: $background-gray;
-  border-color: $border-gray;
-  color: $foreground-gray;
+  @include palette-gray;
   &:hover {
-    background-color: $background-light_gray;
-    border-color: $border-light_gray;
-    color: $foreground-light_gray;
+    @include palette-light_gray;
   }
   &:active {
-    background-color: $background-dark_gray;
-    border-color: $border-dark_gray;
-    color: $foreground-dark_gray;
+    @include palette-dark_gray;
+  }
+}
+
+.nice_control-blue {
+  @extend .nice_control;
+  @include palette-blue;
+  &:hover {
+    @include palette-light_blue;
+  }
+  &:active {
+    @include palette-dark_blue;
   }
 }
 
 .nice_control-green {
   @extend .nice_control;
-  background-color: $background-green;
-  border-color: $border-green;
-  color: $foreground-green;
+  @include palette-green;
   &:hover {
-    background-color: $background-light_green;
-    border-color: $border-light_green;
-    color: $foreground-light_green;
+    @include palette-light_green;
   }
   &:active {
-    background-color: $background-dark_gray;
-    border-color: $border-dark_gray;
-    color: $foreground-dark_gray;
+    @include palette-dark_green;
+  }
+}
+
+.nice_control-blue {
+  @extend .nice_control;
+  @include palette-blue;
+  &:hover {
+    @include palette-light_blue;
+  }
+  &:active {
+    @include palette-dark_blue;
   }
 }
 
@@ -153,7 +259,6 @@ body {
       }
     }
   }
-
 }
 
 /* action classes */
