@@ -20,11 +20,11 @@ export default Ember.Controller.extend({
     });
   },
   all_actions: [
-    new_action({name:'Rotate Right', class_to_apply:'rotate_right',
+    new_action({name:'Rotate Right', class_to_apply:'rotate_90deg',
       type: 'rotate'}),
-    new_action({name:'Rotate Left', class_to_apply:'rotate_left',
+    new_action({name:'Rotate Left', class_to_apply:'rotate_270deg',
       type: 'rotate'}),
-    new_action({name:'Rotate 180', class_to_apply:'rotate_180',
+    new_action({name:'Rotate 180', class_to_apply:'rotate_180deg',
       type: 'rotate'}),
     new_action({name:'Translate Left', class_to_apply:'translate_left',
       type: 'translate-horizontal'}),
