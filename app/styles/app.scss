@@ -50,6 +50,7 @@ $area-height-most: $area-height - $area-height-little;
   -webkit-margin-after: 0;
 }
 
+/* Helper classes */
 .nice_control {
   font-size: 1em;
   @include border-radius(8px);
@@ -87,6 +88,13 @@ $area-height-most: $area-height - $area-height-little;
   }
 }
 
+.alignment-helper {
+  @include vertically_align;
+  height: 100%;
+}
+
+/* Actual app styling */
+
 .image_area, .actions_area {
   float: left;
   width: $area-width;
@@ -99,10 +107,6 @@ $area-height-most: $area-height - $area-height-little;
   .image_area-window {
     height: $area-height-most;
     text-align: center;
-    .alignment-helper {
-      @include vertically_align;
-      height: 100%;
-    }
     img {
       @include vertically_align;
     }
@@ -115,11 +119,11 @@ $area-height-most: $area-height - $area-height-little;
 .actions_area {
   border: 1px solid red;
   .reset_actions {
+    height: $area-height-little;
+    text-align: center;
     .button_reset {
+      @include vertically_align;
       @extend .nice_control;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
     }
   }
   .actions_lists {
