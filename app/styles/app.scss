@@ -1,7 +1,19 @@
 /* color variables */
+$border-gray: #888;
+$background-gray: #DDD;
+$foreground-gray: #666;
+
+$border-light_gray: #999;
+$background-light_gray: #EEE;
+$foreground-light_gray: #777;
+
 $border-green: #8D8;
 $background-green: #DFD;
 $foreground-green: #6B6;
+
+$border-light_green: #9E9;
+$background-light_green: #EFE;
+$foreground-light_green: #7C7;
 
 /* positioning and dimensioning variables */
 $common_spacing: 5px;
@@ -28,6 +40,33 @@ $area-height-most: $area-height - $area-height-little;
   list-style-type: none;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
+}
+
+.nice_control {
+  font-size: 1em;
+  @include border-radius(8px);
+  border-width: 1px;
+  border-style: solid;
+  background-color: $background-gray;
+  border-color: $border-gray;
+  color: $foreground-gray;
+  &:hover {
+    background-color: $background-light_gray;
+    border-color: $border-light_gray;
+    color: $foreground-light_gray;
+  }
+}
+
+.nice_control-green {
+  @extend .nice_control;
+  background-color: $background-green;
+  border-color: $border-green;
+  color: $foreground-green;
+  &:hover {
+    background-color: $background-light_green;
+    border-color: $border-light_green;
+    color: $foreground-light_green;
+  }
 }
 
 .image_area, .actions_area {
@@ -59,6 +98,7 @@ $area-height-most: $area-height - $area-height-little;
   border: 1px solid red;
   .reset_actions {
     .button_reset {
+      @extend .nice_control;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -75,10 +115,7 @@ $area-height-most: $area-height - $area-height-little;
         width: $area-width-half - ($common_spacing * 2);
 
         li {
-          @include border-radius(8px);
-          background-color: $background-green;
-          color: $foreground-green;
-          border: 1px solid $border-green;
+          @extend .nice_control-green;
           margin: $common_spacing;
           padding: $common_spacing;
           text-align: center;
