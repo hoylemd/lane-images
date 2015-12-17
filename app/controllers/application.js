@@ -27,13 +27,13 @@ export default Ember.Controller.extend({
     new_action({name:'Rotate 180', type: 'rotate',
                style: {rotate: 180}}),
     new_action({name:'Translate Left', type: 'translate-x',
-               style: {translate: [-40, 0]}}),
+               style: {translate: {x: -40, y: 0}}}),
     new_action({name:'Translate Right', type: 'translate-x',
-               style: {translate: [40, 0]}}),
+               style: {translate: {x: 40, y: 0}}}),
     new_action({name:'Translate Up', type: 'translate-y',
-               style: {translate: [0, -40]}}),
+               style: {translate: {x: 0, y: -40}}}),
     new_action({name:'Translate Down', type: 'translate-y',
-               style: {translate: [0, 40]}}),
+               style: {translate: {x: 0, y: 40}}}),
     new_action({name:'Scale to Half', type: 'scale',
                style: {scale: 0.5}}),
     new_action({name:'Scale to Double', type: 'scale',
@@ -59,7 +59,16 @@ export default Ember.Controller.extend({
       style_string = '';
 
     this.get('applied_actions').forEach((action) => {
+      rotate = action.style['rotate'] || rotate;
 
+      var translation = action.style['translate'];
+      if (translation) {
+        translate.x += translation.x;
+        translate.y += translation.y;
+      }
+
+      scale = action.style['scale'] || scale;
+      opacity = action.style['opacity'] || opacity;
     });
 
     style_string = 'transform: ' +
