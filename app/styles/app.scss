@@ -150,10 +150,10 @@ body {
           &.rotate {
             @extend .nice_control-red;
           }
-          &.translate-vertical {
+          &.translate-x {
             @extend .nice_control-green;
           }
-          &.translate-horizontal {
+          &.translate-y {
             @extend .nice_control-blue;
           }
           &.scale {

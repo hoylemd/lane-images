@@ -20,16 +20,26 @@ export default Ember.Controller.extend({
   },
 
   all_actions: [
-    new_action({name:'Rotate Right', type: 'rotate'}),
-    new_action({name:'Rotate Left', type: 'rotate'}),
-    new_action({name:'Rotate 180', type: 'rotate'}),
-    new_action({name:'Translate Left', type: 'translate-horizontal'}),
-    new_action({name:'Translate Right', type: 'translate-horizontal'}),
-    new_action({name:'Translate Up', type: 'translate-vertical'}),
-    new_action({name:'Translate Down', type: 'translate-vertical'}),
-    new_action({name:'Scale to Half', type: 'scale'}),
-    new_action({name:'Scale to Double', type: 'scale'}),
-    new_action({name:'Half Opacity', type: 'opacity'})
+    new_action({name:'Rotate Right', type: 'rotate',
+               style: {rotate: 90}}),
+    new_action({name:'Rotate Left', type: 'rotate',
+               style: {rotate: 270}}),
+    new_action({name:'Rotate 180', type: 'rotate',
+               style: {rotate: 180}}),
+    new_action({name:'Translate Left', type: 'translate-x',
+               style: {translate: [-40, 0]}}),
+    new_action({name:'Translate Right', type: 'translate-x',
+               style: {translate: [40, 0]}}),
+    new_action({name:'Translate Up', type: 'translate-y',
+               style: {translate: [0, -40]}}),
+    new_action({name:'Translate Down', type: 'translate-y',
+               style: {translate: [0, 40]}}),
+    new_action({name:'Scale to Half', type: 'scale',
+               style: {scale: 0.5}}),
+    new_action({name:'Scale to Double', type: 'scale',
+               style: {scale: 2}}),
+    new_action({name:'Half Opacity', type: 'opacity',
+               style: {opacity: 0.5}}),
   ],
 
   types_hash: {},
@@ -42,8 +52,6 @@ export default Ember.Controller.extend({
   }.property('all_actions.@each.applied'),
 
   image_style: function () {
-    var toy_opacity =  this.get('applied_actions').length * 0.1;
-    return 'opacity: ' + toy_opacity + ';';
   }.property('all_actions.@each.applied'),
 
   actions: {
