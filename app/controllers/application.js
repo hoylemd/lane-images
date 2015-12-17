@@ -52,6 +52,23 @@ export default Ember.Controller.extend({
   }.property('all_actions.@each.applied'),
 
   image_style: function () {
+    var rotate = 0,
+      translate = {x: 0, y: 0},
+      scale = 1,
+      opacity = 1,
+      style_string = '';
+
+    this.get('applied_actions').forEach((action) => {
+
+    });
+
+    style_string = 'transform: ' +
+      'rotate(' + rotate + 'deg) ' +
+      'translate(' + translate.x + 'px, ' + translate.y + 'px) ' +
+      'scale(' + scale + ');' +
+      'opacity: ' + opacity + ';';
+
+    return style_string;
   }.property('all_actions.@each.applied'),
 
   actions: {
