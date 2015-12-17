@@ -95,6 +95,10 @@ $area-height-most: $area-height - $area-height-little;
 
 /* Actual app styling */
 
+body {
+  font-family: 'arial';
+}
+
 .image_area, .actions_area {
   float: left;
   width: $area-width;
