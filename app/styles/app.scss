@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'actions';
 
 /* positioning and dimensioning variables */
 $common_spacing: 5px;
@@ -163,48 +164,4 @@ body {
       }
     }
   }
-}
-
-/* action classes */
-.rotate_right {
-  transform: rotate(90deg);
-}
-.rotate_left {
-  transform: rotate(270deg);
-}
-.rotate_180 {
-  transform: rotate(180deg);
-}
-.translate_left {
-  transform: translate(-40px, 0px);
-}
-.translate_right {
-  transform: translate(40px, 0px);
-}
-.translate_up {
-  transform: translate(0px, -40px);
-}
-.translate_down {
-  transform: translate(0px, 40px);
-}
-.translate_left.translate_up {
-  transform: translate(-40px, -40px);
-}
-.translate_right.translate_up {
-  transform: translate(40px, -40px);
-}
-.translate_left.translate_down {
-  transform: translate(-40px, 40px);
-}
-.translate_right.translate_down {
-  transform: translate(40px, 40px);
-}
-.scale_half {
-  transform: scale(0.5, 0.5);
-}
-.scale_double {
-  transform: scale(2, 2);
-}
-.half_opacity {
-  opacity: 0.5;
 }
