@@ -130,7 +130,12 @@ $area-height-most: $area-height - $area-height-little;
     .actions_lists_half {
       float: left;
       width: $area-width-half;
-
+      text-align: center;
+      h3 {
+        margin-top: $common_spacing;
+        margin-bottom: $common_spacing;
+        text-decoration: underline;
+      }
       ul {
         @include lol_no_list_styling_please;
         padding: $common_spacing;
@@ -140,7 +145,6 @@ $area-height-most: $area-height - $area-height-little;
           @extend .nice_control-green;
           margin: $common_spacing;
           padding: $common_spacing;
-          text-align: center;
         }
       }
     }

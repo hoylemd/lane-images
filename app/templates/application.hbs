@@ -16,6 +16,7 @@
     </div>
     <div class="actions_lists">
       <div class="actions_lists_half">
+        <h3>Available Actions</h3>
         <ul class="actions_available">
           {{#each available_actions as |action| }}
             <li {{action 'add_action' action}} class="action">{{action.name}}</li>
@@ -23,6 +24,7 @@
         </ul>
       </div>
       <div class="actions_lists_half">
+        <h3>Applied Actions</h3>
         <ul class="actions_applied">
           {{#each applied_actions as |action| }}
           <li {{action 'remove_action' action}} class="action">{{action.name}}</li>
