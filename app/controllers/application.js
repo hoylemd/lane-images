@@ -9,10 +9,10 @@ function new_action(spec) {
 export default Ember.Controller.extend({
   image_source:'http://www.squishable.com/user_gallery/pillow_catbug_okay_2D/360s/pillow_catbug_okay_2D_design.jpg',
   init: function () {
-    var hash = this.get('action_types_hash');
+    var hash = this.get('types_hash');
 
     this.get('all_actions').forEach(function(action){
-      var type = action.get('action_type');
+      var type = action.get('type');
       hash[action.get('class_to_apply')] = action;
 
       hash[type] = hash[type] || [];
@@ -21,27 +21,27 @@ export default Ember.Controller.extend({
   },
   all_actions: [
     new_action({name:'Rotate Right', class_to_apply:'rotate_right',
-      action_type: 'rotate'}),
+      type: 'rotate'}),
     new_action({name:'Rotate Left', class_to_apply:'rotate_left',
-      action_type: 'rotate'}),
+      type: 'rotate'}),
     new_action({name:'Rotate 180', class_to_apply:'rotate_180',
-      action_type: 'rotate'}),
+      type: 'rotate'}),
     new_action({name:'Translate Left', class_to_apply:'translate_left',
-      action_type: 'translate'}),
+      type: 'translate'}),
     new_action({name:'Translate Right', class_to_apply:'translate_right',
-      action_type: 'translate'}),
+      type: 'translate'}),
     new_action({name:'Translate Up', class_to_apply:'translate_up',
-      action_type: 'translate'}),
+      type: 'translate'}),
     new_action({name:'Translate Down', class_to_apply:'translate_down',
-      action_type: 'translate'}),
+      type: 'translate'}),
     new_action({name:'Scale to Half', class_to_apply:'scale_half',
-      action_type: 'scale'}),
+      type: 'scale'}),
     new_action({name:'Scale to Double', class_to_apply:'scale_double',
-      action_type: 'scale'}),
+      type: 'scale'}),
     new_action({name:'Half Opacity', class_to_apply:'half_opacity',
-      action_type: 'opacity'})
+      type: 'opacity'})
   ],
-  action_types_hash: {},
+  types_hash: {},
   available_actions: function() {
     return this.get('all_actions').filterBy('applied', false);
   }.property('all_actions.@each.applied'),
@@ -60,9 +60,9 @@ export default Ember.Controller.extend({
   }.property('action_classes'),
   actions: {
     'add_action': function(action) {
-      var type = action.get('action_type');
+      var type = action.get('type');
 
-      this.get('action_types_hash')[type].forEach(other => {
+      this.get('types_hash')[type].forEach(other => {
         other.set('applied', false);
       });
 
