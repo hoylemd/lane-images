@@ -13,34 +13,25 @@ export default Ember.Controller.extend({
 
     this.get('all_actions').forEach(function(action){
       var type = action.get('type');
-      hash[action.get('class_to_apply')] = action;
 
       hash[type] = hash[type] || [];
       hash[type].push(action);
     });
   },
+
   all_actions: [
-    new_action({name:'Rotate Right', class_to_apply:'rotate_right',
-      type: 'rotate'}),
-    new_action({name:'Rotate Left', class_to_apply:'rotate_left',
-      type: 'rotate'}),
-    new_action({name:'Rotate 180', class_to_apply:'rotate_180',
-      type: 'rotate'}),
-    new_action({name:'Translate Left', class_to_apply:'translate_left',
-      type: 'translate-horizontal'}),
-    new_action({name:'Translate Right', class_to_apply:'translate_right',
-      type: 'translate-horizontal'}),
-    new_action({name:'Translate Up', class_to_apply:'translate_up',
-      type: 'translate-vertical'}),
-    new_action({name:'Translate Down', class_to_apply:'translate_down',
-      type: 'translate-vertical'}),
-    new_action({name:'Scale to Half', class_to_apply:'scale_half',
-      type: 'scale'}),
-    new_action({name:'Scale to Double', class_to_apply:'scale_double',
-      type: 'scale'}),
-    new_action({name:'Half Opacity', class_to_apply:'half_opacity',
-      type: 'opacity'})
+    new_action({name:'Rotate Right', type: 'rotate'}),
+    new_action({name:'Rotate Left', type: 'rotate'}),
+    new_action({name:'Rotate 180', type: 'rotate'}),
+    new_action({name:'Translate Left', type: 'translate-horizontal'}),
+    new_action({name:'Translate Right', type: 'translate-horizontal'}),
+    new_action({name:'Translate Up', type: 'translate-vertical'}),
+    new_action({name:'Translate Down', type: 'translate-vertical'}),
+    new_action({name:'Scale to Half', type: 'scale'}),
+    new_action({name:'Scale to Double', type: 'scale'}),
+    new_action({name:'Half Opacity', type: 'opacity'})
   ],
+
   types_hash: {},
   available_actions: function() {
     return this.get('all_actions').filterBy('applied', false);
@@ -50,14 +41,6 @@ export default Ember.Controller.extend({
     return this.get('all_actions').filterBy('applied');
   }.property('all_actions.@each.applied'),
 
-  action_classes: function () {
-    var classes = this.get('applied_actions').mapBy('class_to_apply');
-    return classes.join(' ');
-  }.property('all_actions.@each.applied'),
-
-  image_classes: function () {
-    return 'js-the-image ' + this.get('action_classes');
-  }.property('action_classes'),
   actions: {
     'add_action': function(action) {
       var type = action.get('type');
