@@ -1,7 +1,8 @@
 # Lane-images
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a demo of my Ember.Js abilities.  You can upload an image by clicking on the button beside 'Upload your image here', or just use the default catbug one.
+
+You can apply different effects to the image by clicking on them on the right-side pane.  Effects of the same colour are mutually exclusive - you can only have one green one at a time, but you can mix different colours as you please.  Click on the Reset button to remove all of the effects.
 
 ## Prerequisites
 
@@ -24,30 +25,3 @@ You will need the following things properly installed on your computer.
 
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
