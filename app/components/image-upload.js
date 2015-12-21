@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  file_input: null,
-
   // default action name
   action: "upload_image",
 
